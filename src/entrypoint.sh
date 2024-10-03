@@ -84,7 +84,7 @@ IMAGES_NAMES="$(cat images.txt)"
 export IMAGES_NAMES
 
 jq -c -r '[.[] | .images | unique| .[] | "\(.newName):\(.newTag)"]' manifest.json  > images-updated.txt
-echo "images-updated='$(cat images-updated.txt)'" >> "${GITHUB_OUTPUT}"
+echo "images-updated=$(cat images-updated.txt)" >> "${GITHUB_OUTPUT}"
 IMAGES_UPDATED="$(cat images-updated.txt)"
 export IMAGES_UPDATED
 
